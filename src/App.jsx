@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import './index.css'
+import PoliticiansCard from './components/PoliticianCard'
 
 function App() {
 
@@ -44,21 +45,7 @@ function App() {
         </div>
         <div className="row g-4">
           {filteredPoliticians.map(politician => (
-            <div key={politician.id} className="col-md-6 col-lg-4">
-              <div className="card h-100">
-                <img
-                  src={politician.image}
-                  alt={politician.name}
-                  className="card-img-top"
-                  style={{ height: '250px', objectFit: 'cover' }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{politician.name}</h5>
-                  <h6 className="card-subtitle mb-2 text-primary">{politician.position}</h6>
-                  <p className="card-text">{politician.biography}</p>
-                </div>
-              </div>
-            </div>
+            <PoliticiansCard key={politician.id} politician={politician} />
           ))}
         </div>
       </div>
